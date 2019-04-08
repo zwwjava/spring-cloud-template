@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="config" />
+        <module name="order" />
+        <module name="product" />
+        <module name="SCloud" />
+        <module name="server" />
+      </profile>
+      <profile name="Annotation profile for api_gateway" enabled="true">
+        <sourceOutputDir name="../api-gateway/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../api-gateway/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="api-gateway" />
+        <module name="api_gateway" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api-gateway" target="1.8" />
+      <module name="api_gateway" target="1.8" />
+      <module name="config" target="1.8" />
+      <module name="config-client" target="1.8" />
+      <module name="config-server" target="1.8" />
+      <module name="consumer" target="1.8" />
+      <module name="feign" target="1.8" />
+      <module name="order" target="1.8" />
+      <module name="producer" target="1.8" />
+      <module name="product" target="1.8" />
+      <module name="SCloud" target="1.5" />
+      <module name="server" target="1.8" />
+      <module name="server-1" target="1.8" />
+      <module name="server-a" target="1.8" />
+      <module name="server-b" target="1.8" />
+      <module name="service-hi" target="1.8" />
+      <module name="service-ribbon" target="1.8" />
+      <module name="zuul" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
