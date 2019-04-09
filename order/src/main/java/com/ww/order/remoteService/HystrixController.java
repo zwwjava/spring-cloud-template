@@ -20,6 +20,13 @@ public class HystrixController {
     @Autowired
     RestTemplate restTemplate;
 
+//    @HystrixCommand(commandProperties = {
+//            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000"),
+//            @HystrixProperty(name = "circuitBreaker.enabled", value = "true"),
+//            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "5"),
+//            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "5000"),
+//            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "50")
+//    })
     @HystrixCommand
     @GetMapping("getMessage")
     String getMessage() {
