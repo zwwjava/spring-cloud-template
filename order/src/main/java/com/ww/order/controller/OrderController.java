@@ -2,6 +2,7 @@ package com.ww.order.controller;
 
 import com.ww.order.bean.OrderMaster;
 import com.ww.order.common.ResultMessager;
+import com.ww.order.config.RedisConfig;
 import com.ww.order.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,6 +23,9 @@ import java.util.List;
 @RefreshScope
 public class OrderController {
 
+    @Autowired
+    private RedisConfig redisConfig;
+
     @Value("${server.port}")
     String port;
 
@@ -31,9 +35,10 @@ public class OrderController {
 
     @GetMapping("list")
     public ResultMessager list() {
+        redisConfig.set("zww", "zwwnihaoya");
         List<OrderMaster> list = orderService.findByWId(0);
         ResultMessager result = new ResultMessager(list);
-        result.setPort("端口号为：" + port);
+        result.setPort("端口号为：" + redisConfig.get("zww"));
         return result;
     }
 

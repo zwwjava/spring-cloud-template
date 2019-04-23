@@ -1,0 +1,15 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: server
+eureka:
+#  instance:
+#    hostname: 101.132.168.231
+#    instance-id: 192.168.99.100:${server.port}
+  client:
+#    registerWithEureka: false
+    serviceUrl:
+      defaultZone: http://101.132.168.231:9002/eureka/
+  server:
+    enable-self-preservation: false

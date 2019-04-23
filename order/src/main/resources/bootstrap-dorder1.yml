@@ -1,0 +1,26 @@
+server:
+  port: 8011
+spring:
+  application:
+    name: order
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG
+      profile: docker
+eureka:
+#  instance:
+#    hostname: 192.168.99.100
+#    instance-id: 192.168.99.100:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.99.100:9001/eureka/, http://192.168.99.100:9002/eureka/
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000

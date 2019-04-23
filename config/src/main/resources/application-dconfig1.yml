@@ -1,0 +1,24 @@
+server:
+  port: 9011
+eureka:
+  instance:
+    hostname: 192.168.99.100
+#    instance-id: 192.168.99.100:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.99.100:9001/eureka/, http://192.168.99.100:9002/eureka/
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/zwwjava/springCLoudConfig
+          username: 183078747@qq.com
+          password: z4418613657.
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

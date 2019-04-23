@@ -1,0 +1,15 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: server
+eureka:
+#  instance:
+#    hostname: 192.168.99.100
+#    instance-id: 192.168.99.100:${server.port}
+  client:
+#    registerWithEureka: false
+    serviceUrl:
+      defaultZone: http://192.168.99.100:9001/eureka/
+  server:
+    enable-self-preservation: false

@@ -1,0 +1,29 @@
+server:
+  port: 9011
+eureka:
+  instance:
+    hostname: 101.132.168.231
+#    instance-id: 192.168.99.100:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://101.132.168.231:9001/eureka/, http://101.132.168.231:9002/eureka/
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/zwwjava/springCLoudConfig
+          username: 183078747@qq.com
+          password: z4418613657.
+  rabbitmq:
+      host: 101.132.168.231
+      port: 5672
+      username: guest
+      password: guest
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

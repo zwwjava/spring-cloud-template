@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 
+import java.util.UUID;
+
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.PRE_DECORATION_FILTER_ORDER;
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.PRE_TYPE;
 
@@ -33,7 +35,8 @@ public class AuthFilter extends ZuulFilter {
     public boolean shouldFilter() {
         RequestContext requestContext = RequestContext.getCurrentContext();
         HttpServletRequest request = requestContext.getRequest();
-        if ("order/order/create".equals(request.getRequestURI())) {
+        if ("login".equals(request.getRequestURI())) {
+            System.out.println("登录校验");
             return true;
         }
         return false;
@@ -43,11 +46,14 @@ public class AuthFilter extends ZuulFilter {
     public Object run() throws ZuulException {
         RequestContext requestContext = RequestContext.getCurrentContext();
         HttpServletRequest request = requestContext.getRequest();
+        String wxCode =  request.getParameter("code");
+        System.out.println("登录校验：" + wxCode);
         //获取 token 参数  也可以从header
-        if (StringUtils.isEmpty("一些判断")) {
+        if (StringUtils.isEmpty(wxCode)) {
            requestContext.setSendZuulResponse(false);
            requestContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
         }
+        requestContext.getResponse().addHeader("X-zww", UUID.randomUUID().toString());
         return null;
     }
 }

@@ -1,12 +1,3 @@
-server:
-  port: 9000
-
-eureka:
-  instance:
-    hostname: server
-  client:
-    registerWithEureka: false
-    serviceUrl:
-      defaultZone: http://localhost:9000/eureka/
-  server:
-    enable-self-preservation: false
+spring:
+  profiles:
+    active: aserver1
