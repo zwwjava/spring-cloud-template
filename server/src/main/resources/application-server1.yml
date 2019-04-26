@@ -8,9 +8,9 @@ spring:
 eureka:
 #  instance:
 #    hostname: localhost
-  client:
-#    registerWithEureka: false
-    serviceUrl:
-      defaultZone: http://localhost:9002/eureka/
+#  client:
+##    registerWithEureka: false
+#    serviceUrl:
+#      defaultZone: http://localhost:9002/eureka/
   server:
     enable-self-preservation: false
