@@ -7,7 +7,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.cloud.netflix.zuul.filters.ZuulProperties;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.ww")
 @EnableZuulProxy
 public class ApiGatewayApplication {
 

@@ -7,7 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 异常处理类
+ * @Description - 异常同一处理类
+ * @Author 查旺旺
+ * @Date 2019/4/2 13:50
  */
 @ControllerAdvice
 public class ExceptionTranslator {
@@ -44,7 +46,7 @@ public class ExceptionTranslator {
     @ResponseBody
     public MessageResp processOtherException(Exception e) {
         logger.error("遇到非预期的错误", e);
-        MessageResp resp = new MessageResp();
+         MessageResp resp = new MessageResp();
         resp.setMessage(RespMessageEnum.FAIL);
         return resp;
     }
