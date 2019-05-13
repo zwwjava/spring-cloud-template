@@ -3,6 +3,7 @@ package com.ww.common.componsents;
 import com.alibaba.fastjson.JSONObject;
 import com.ww.common.aop.WwException;
 import com.ww.common.bean.UserInfo;
+import com.ww.common.bean.WxLoginInfo;
 import com.ww.common.enums.RespMessageEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
@@ -54,6 +55,17 @@ public class Auth {
         redisTemplate.opsForValue().set(partyUuid, JSONObject.toJSONString(userInfo), TOKEN_LIFE_IN_DAY, TimeUnit.DAYS);
 
         return partyUuid;
+    }
+
+    /**
+     * 将微信小程序信息存入redis
+     * @param wxLoginInfo
+     * @return
+     */
+    public void setWxUserInfo(WxLoginInfo wxLoginInfo) {
+//        removeExist(wxLoginInfo);
+        redisTemplate.opsForValue().set("wx_openid:" + wxLoginInfo.getOpenId(), wxLoginInfo.getSession_key(), MANAGER_LIFT_IN_MIN, TimeUnit.MINUTES);
+        return;
     }
 
     /**

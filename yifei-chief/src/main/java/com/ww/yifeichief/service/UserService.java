@@ -15,4 +15,6 @@ public interface UserService {
     UserInfo login(UserInfoDto userInfo);
 
     UserInfo queryUserInfo(String partyUuid);
+
+    void wxLogin(String code);
 }

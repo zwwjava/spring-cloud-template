@@ -42,7 +42,6 @@ public class TokenFilter extends ZuulFilter {
         HttpServletRequest request = requestContext.getRequest();
         String s = request.getParameterMap().toString();
         log.info("request parameter: " +s);
-        log.info(request.getRequestURI());
         if ("/yifei-chief/user/register".equals(request.getRequestURI())) {
             log.info("登录校验");
             return false;
@@ -60,12 +59,14 @@ public class TokenFilter extends ZuulFilter {
         HttpServletRequest request = requestContext.getRequest();
         //获取 token 参数  也可以从header
         String token =  request.getHeader("token");
+        log.info("token 值：" + token);
         if (StringUtils.isEmpty(token)) {
            requestContext.setSendZuulResponse(false);
            requestContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
         }
         //检查token是否失效
         auth.getUserInfo(token);
+        log.info("token检查通过：" + token);
         return null;
     }
 }

@@ -1,9 +1,13 @@
 package com.ww.yifeichief.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.ww.common.aop.MessageResp;
 import com.ww.common.aop.RespCode;
+import com.ww.common.aop.WwException;
+import com.ww.common.bean.WxLoginInfo;
 import com.ww.common.componsents.BaseController;
 import com.ww.common.resultMessager.ResultMessager;
+import com.ww.common.utils.HttpsUtils;
 import com.ww.yifeichief.bean.UserInfo;
 import com.ww.yifeichief.dto.UserInfoDto;
 import com.ww.yifeichief.service.UserService;
@@ -11,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -22,6 +27,7 @@ import java.util.List;
 @RequestMapping("user")
 @Slf4j
 public class UserController extends BaseController{
+
 
     @Autowired
     UserService userService;
@@ -57,6 +63,18 @@ public class UserController extends BaseController{
     @ResponseBody
     public MessageResp queryUserInfo() {
         userService.queryUserInfo(getUserInfo().getPartyUuid());
+        return success();
+    }
+
+    /**
+     * 微信登录
+     * @return
+     */
+    @RequestMapping(value = "/wxLogin", method = RequestMethod.GET)
+    @ResponseBody
+    public MessageResp wxLogin(String code) {
+        log.info("code:" + code);
+        userService.wxLogin(code);
         return success();
     }
 

@@ -3,12 +3,16 @@ server:
 spring:
   application:
     name: api_gateway
-  cloud:
-      config:
-        discovery:
-          enabled: true
-          service-id: CONFIG
-        profile: dev
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      username: zww
+      password: 960128
+      url: jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8
+    jpa:
+      show-sql: true
+    redis:
+      host: 101.132.168.231
+      password: 960128
 eureka:
   instance:
     hostname: 101.132.168.231

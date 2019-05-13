@@ -10,6 +10,6 @@ eureka:
   client:
 #    registerWithEureka: false
     serviceUrl:
-      defaultZone: http://101.132.168.231:9001/eureka/
+      defaultZone: http://101.132.168.231:9002/eureka/
   server:
     enable-self-preservation: false

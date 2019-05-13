@@ -1,10 +1,12 @@
 package com.ww.common.bean;
 
+import lombok.Data;
 import org.joda.time.DateTime;
 
 /**
  * 用户信息
  */
+@Data
 public class UserInfo {
 
     private String partyUuid;
@@ -33,51 +35,4 @@ public class UserInfo {
         this.loginTime = DateTime.now();
     }
 
-    public String getPartyUuid() {
-        return partyUuid;
-    }
-
-    public void setPartyUuid(String partyUuid) {
-        this.partyUuid = partyUuid;
-    }
-
-    public DateTime getLoginTime() {
-        return loginTime;
-    }
-
-    public void setLoginTime(DateTime loginTime) {
-        this.loginTime = loginTime;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getOpenid() {
-        return openid;
-    }
-
-    public void setOpenid(String openid) {
-        this.openid = openid;
-    }
-
-    public String getMobil() {
-        return mobil;
-    }
-
-    public void setMobil(String mobil) {
-        this.mobil = mobil;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
 }

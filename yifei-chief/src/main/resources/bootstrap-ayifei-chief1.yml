@@ -1,11 +1,24 @@
 
+server:
+  port: 8021
 spring:
-  cloud:
-    config:
-      discovery:
-        enabled: true
-        service-id: CONFIG
-      profile: ali
+  application:
+    name: yifei-chief
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: 960128
+      url: jdbc:mysql://101.132.168.231:3306/test?characterEncoding=UTF-8
+    jpa:
+      show-sql: true
+    rabbitmq:
+      host: 101.132.168.231
+      port: 5672
+      username: guest
+      password: guest
+    redis:
+      host: 101.132.168.231
+      password: 960128
 eureka:
   instance:
     hostname: 101.132.168.231

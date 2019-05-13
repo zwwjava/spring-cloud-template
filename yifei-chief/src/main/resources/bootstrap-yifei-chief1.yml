@@ -1,13 +1,21 @@
-
+server:
+  port: 8001
 spring:
   application:
     name: yifei-chief
-  cloud:
-    config:
-      discovery:
-        enabled: true
-        service-id: CONFIG
-      profile: dev
+#  cloud:
+#    config:
+#      discovery:
+#        enabled: true
+#        service-id: CONFIG
+#      profile: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: zww
+    password: 960128
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8
+  jpa:
+    show-sql: true
 eureka:
 #  instance:
 #    hostname: localhost
