@@ -1,0 +1,19 @@
+spring:
+  port: 8081
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 960128
+    url: jdbc:mysql://101.132.168.231:3306/test?characterEncoding=UTF-8
+
+# Logger Config
+logging:
+  level:
+    com.baomidou.mybatisplus.samples.quickstart: debug
+
+baseUrl: E:\SCloud\diary\src\main\resources\images\
+
+# 配置slq打印日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
