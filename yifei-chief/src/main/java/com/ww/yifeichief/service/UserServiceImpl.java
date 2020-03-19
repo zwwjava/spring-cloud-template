@@ -30,9 +30,9 @@ public class UserServiceImpl implements UserService {
 
     private final static String url = "https://api.weixin.qq.com/sns/jscode2session";
 
-    private final static String appId = "wxdaf6a3891cd1c6f";//TODO 提交前修改
+    private final static String appId = "wxdaf6a3891cd1c6ff";//TODO 提交前修改
 
-    private final static String secret = "0cfcb7e1b0dd9f2134f94318de136b6"; //TODO 提交前修改
+    private final static String secret = "0cfcb7e1b0dd9f2134f94318de136b6d"; //TODO 提交前修改
 
     private final static String grant_type = "authorization_code";
 

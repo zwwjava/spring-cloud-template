@@ -1,6 +1,7 @@
 package com.ww.product.service;
 
 import com.ww.product.bean.WeatherInfo;
+import com.ww.product.mapper.ProductMapper;
 import com.ww.product.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -19,6 +20,9 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
+    private ProductMapper productMapper;
+
+    @Autowired
     private ProductRepository productRepository;
 
     @Autowired
@@ -26,9 +30,11 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<WeatherInfo> findByWId(Integer id) {
+        List<WeatherInfo> list = productMapper.selectList(null);
+        return list;
         //发送mq消息
-        log.info("seng MQ message");
-        amqpTemplate.convertAndSend("myOrderQueue","product init mq message");
-        return productRepository.findByWId(1);
+//        log.info("seng MQ message");
+//        amqpTemplate.convertAndSend("myOrderQueue","product init mq message");
+//        return productRepository.findByWId(1);
     }
 }

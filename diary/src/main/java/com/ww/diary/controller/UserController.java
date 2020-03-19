@@ -4,15 +4,9 @@ package com.ww.diary.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.ww.diary.dto.ArcitleCreateReq;
 import com.ww.diary.dto.MessageResp;
-import com.ww.diary.entity.ArticleEntity;
 import com.ww.diary.entity.ImagesEntity;
 import com.ww.diary.service.ArticleService;
-import com.ww.diary.service.ArticleServiceImpl;
 import com.ww.diary.service.ImagesService;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -31,7 +25,6 @@ public class UserController extends BaseController {
 
     @Resource
     ArticleService articleService;
-
     @Resource
     ImagesService imagesService;
 
